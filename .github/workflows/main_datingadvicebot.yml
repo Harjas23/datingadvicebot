@@ -69,8 +69,8 @@ jobs:
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'datingadvicebot-hsahfcc2ete6bcb2'
+          app-name: 'datingtherapy-a3cqazdwbxajheg9'
           slot-name: 'Production'
 
       - name: Restart the Azure Web App
-        run: az webapp restart --name datingadvicebot-hsahfcc2ete6bcb2 --resource-group YOUR_RESOURCE_GROUP
+        run: az webapp restart --name datingtherapy-a3cqazdwbxajheg9 --resource-group YOUR_RESOURCE_GROUP
