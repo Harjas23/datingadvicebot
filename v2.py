@@ -1,9 +1,11 @@
+
 import streamlit as st
-from transformers import BlenderbotTokenizer, BlenderbotForConditionalGeneration
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM as BlenderbotForConditionalGeneration
+
 
 # Load BlenderBot model and tokenizer
 model_name = "facebook/blenderbot-400M-distill"
-tokenizer = BlenderbotTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = BlenderbotForConditionalGeneration.from_pretrained(model_name)
 
 # Ensure conversation history is a list in session state
@@ -12,7 +14,7 @@ if "conversation_history" not in st.session_state or not isinstance(st.session_s
 
 # Define the initial system prompt
 INITIAL_PROMPT = (
-    "Act as a dating advisor for Gen Z in 2025. Give advice on ghosting, red flags, and when to move on.\n"
+    "Act as a dating advisor for Gen Z in 2025. Give advice on ghosting, red flags, and when to move on. Be Rough and honest\n"
 )
 
 def get_blenderbot_response(user_input):
